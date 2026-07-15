@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial | Tereza Cristina · Fluxe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C0C0D;
+  --bg-soft:#131315;
+  --card:#18181B;
+  --card-border:#26262B;
+  --text:#F5F4F2;
+  --text-dim:#A6A5A1;
+  --text-faint:#6E6D6A;
+  --orange:#F24E00;
+  --orange-soft:rgba(242,78,0,.12);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Manrope',sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--orange);color:#fff}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#2a2a2e;border-radius:9px}
+::-webkit-scrollbar-thumb:hover{background:var(--orange)}
+
+/* fundo decorativo fixo */
+.bg-glow{position:fixed;width:60vw;height:60vw;top:-22vw;right:-18vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,78,0,.14),transparent 62%);
+  filter:blur(90px);pointer-events:none;z-index:0;animation:pulse 9s ease-in-out infinite}
+.bg-glow2{position:fixed;width:46vw;height:46vw;bottom:-18vw;left:-14vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,78,0,.08),transparent 62%);
+  filter:blur(90px);pointer-events:none;z-index:0}
+@keyframes pulse{0%,100%{opacity:.75}50%{opacity:1}}
+.bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:72px 72px}
+.bg-noise{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E")}
+
+/* nav */
+nav{
+  position:sticky;top:0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(14px,2.4vw,18px) clamp(20px,5vw,56px);
+  background:rgba(12,12,13,.78);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--card-border);
+}
+nav img{height:clamp(24px,3vw,32px);display:block}
+nav span{font-size:clamp(10px,1.4vw,11.5px);letter-spacing:.24em;text-transform:uppercase;
+  color:var(--text-faint);font-weight:700}
+
+main{position:relative;z-index:2}
+.wrap{max-width:920px;margin:0 auto;padding:0 clamp(20px,5vw,32px)}
+section{padding:clamp(56px,9vw,110px) 0}
+
+/* hero */
+.hero{min-height:82vh;display:flex;align-items:center;padding:clamp(40px,7vw,80px) 0}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--card-border);background:var(--bg-soft);
+  border-radius:99px;padding:8px 16px;
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-dim);margin-bottom:clamp(20px,4vw,30px);
+}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--orange);animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+h1{
+  font-size:clamp(34px,7vw,74px);font-weight:800;line-height:1.05;letter-spacing:-0.025em;
+  margin-bottom:clamp(18px,3.4vw,26px);
+}
+h1 em{font-style:normal;color:var(--orange)}
+.hero p{font-size:clamp(16px,2.2vw,19px);color:var(--text-dim);max-width:600px;font-weight:300}
+
+/* seções */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--orange)}
+h2{font-size:clamp(24px,4.4vw,38px);font-weight:800;letter-spacing:-0.015em;line-height:1.16;margin-bottom:clamp(16px,3vw,22px)}
+section p{color:var(--text-dim);margin-bottom:16px;max-width:680px}
+section p strong{color:var(--text);font-weight:600}
+
+/* cards de métricas */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(12px,2vw,18px);margin-top:clamp(26px,4vw,36px)}
+.stat{
+  background:var(--card);border:1px solid var(--card-border);
+  border-radius:var(--radius);padding:clamp(22px,3.6vw,30px);
+  transition:transform .3s ease,border-color .3s ease;
+}
+.stat:hover{transform:translateY(-4px);border-color:rgba(242,78,0,.45)}
+.stat b{display:block;font-size:clamp(30px,5vw,42px);font-weight:800;color:var(--orange);line-height:1.05;margin-bottom:8px}
+.stat span{font-size:13.5px;color:var(--text-dim);line-height:1.55;display:block}
+
+/* pilares da estratégia */
+.pilares{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,2vw,18px);margin-top:clamp(24px,4vw,32px)}
+.pilar{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(22px,3.6vw,28px)}
+.pilar h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.pilar h3::before{content:"";display:block;width:30px;height:3px;background:var(--orange);border-radius:3px;margin-bottom:14px}
+.pilar p{font-size:14px;margin:0;color:var(--text-dim)}
+
+/* planos */
+.planos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(14px,2.4vw,20px);margin-top:clamp(26px,4vw,36px)}
+.plano{
+  background:var(--card);border:1px solid var(--card-border);
+  border-radius:var(--radius);padding:clamp(26px,4.4vw,36px);
+  display:flex;flex-direction:column;position:relative;
+  transition:transform .3s ease,border-color .3s ease;
+}
+.plano:hover{transform:translateY(-4px)}
+.plano.rec{border-color:rgba(242,78,0,.55);background:linear-gradient(165deg,rgba(242,78,0,.09),var(--card) 55%)}
+.plano .tag{
+  align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text-dim);background:var(--bg-soft);border:1px solid var(--card-border);
+  border-radius:99px;padding:6px 13px;margin-bottom:18px;
+}
+.plano.rec .tag{color:var(--orange);background:var(--orange-soft);border-color:rgba(242,78,0,.35)}
+.plano h3{font-size:clamp(19px,2.8vw,23px);font-weight:800;margin-bottom:6px}
+.plano .desc{font-size:14px;color:var(--text-dim);margin-bottom:20px}
+.plano ul{list-style:none;flex:1;margin-bottom:24px}
+.plano li{position:relative;padding-left:22px;margin-bottom:10px;font-size:14px;color:var(--text-dim);line-height:1.55}
+.plano li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;background:var(--orange);border-radius:2px}
+.preco{border-top:1px solid var(--card-border);padding-top:20px}
+.preco b{font-size:clamp(24px,3.6vw,30px);font-weight:800;color:var(--text)}
+.preco small{display:block;font-size:13px;color:var(--text-dim);margin-top:4px}
+.pg-cond{margin-top:clamp(22px,3.4vw,30px);font-size:14px;color:var(--text-faint)}
+
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(12px,2vw,18px);margin-top:clamp(26px,4vw,36px)}
+.step{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:clamp(22px,3.6vw,28px)}
+.step .n{font-size:13px;font-weight:800;color:var(--orange);letter-spacing:.12em;margin-bottom:12px}
+.step h3{font-size:16px;font-weight:800;margin-bottom:6px}
+.step p{font-size:13.5px;margin:0;color:var(--text-dim)}
+
+/* footer */
+footer{position:relative;z-index:2;border-top:1px solid var(--card-border);padding:clamp(30px,5vw,44px) 0}
+.foot{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.fluxe-mark{font-weight:800;letter-spacing:.34em;font-size:15px;color:var(--orange)}
+.foot p{font-size:12.5px;color:var(--text-faint);margin:0}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+<div class="bg-grid"></div>
+<div class="bg-noise"></div>
+
+<nav>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmIAAABoCAYAAABSUpypAAANhElEQVR4nO3dQU4cSRbG8Y9Rr0ZybGYHrVnMBuYAcIDG6xQ+AH0ALLMGvB5gXZbrAM0BXJPr5gLmArBvOEAwe8+iHihtgakqMjJeRP5/0kg93e6s19hQr+JFfLEWGx1LOpb0Rv24kRR7elbNLkOr41QPj42+SNrr6XE3odVWT8/CAmKjM0lHqZ4fWq2lerZnib+uvX6f2M/mX/t63ivFlD+vPLE/IyF3Heav0Oqsr4fFRp8lHfT1PCzlXtLH0OrTj//gF82/0ftqwiRps8dn1Ww7NlLCH24bPT6L39PheXkjqE3Kr2vf3ydBjt40Y6N3tX8gi42+StrOXUfHee4C0Js3kib2vv9dM/a3TAVh7sg+fQHAd+xD2qGku9y1mM3Y6Fts9CF3IX2LjT7ERlF+mrB7SYdjWYUcmcmP30M0YvnRjAF4Umj1KbTakDTLXUvHxEZcVbCfvxP1Oxl6javQKjw1wkI1vmvGaMR8oBkD8KzQ6p18jakOYqM/cxfxWraXNtlezBVMQ6ud3EVgEI/NGI2YH7u5CwDgV2dUeZ+7FrMbG8USR5U2irxVfwea+nAYWr3PXQQGtSXRiAFAMWxUGSRd5a7FPGxALmZF306jTiSt567F3IRWa4wix4tGDAAKY+Orae46Oo5szOdabPSHpNPcdXRc1H4SFS+jEQOAAtkY6yR3HR17Nu5zKTa6lrSfu46O89Dq99xFID8aMQAoVGh1ZuG8N7lrMesWceEmdsH2g32TnzzEOxFNgQ4aMQAonI23Zrnr6Di1MWBWnWgKLy5Dqw32g6GLRgwAKuAw4mLfkuqzsHgNT9EU56HV29xFwB8aMQCohMOIi+2h0/g7KfmeIoEYReJZNGIAUJFOxMVl7lo6Bom4cJqSTzQFfopGDAAqZGMwT6PKo5Rp/A5T8i9IycciaMQAoFKdUaUXu7HRbd+jSoum2Ovzma90QjQFFkUjBgAVs1Glq4gL9TSqjI2OvUVT2CiymJsGkB+NGACMgEVcXOSuo+PoNREXsdFn+UrJn4VWG7mLQHloxABgJGxc5imNf9/GikuxWIyDBPWs6tziQ4Cl/ZK7AADAcEKrs9jof5pvbPdw8fWmjRcPXzpdaHvL/iM/pyLvJX0c8anIO8nvtVYF+EtK04hN7Q40AIBD1jh8spOGe5nLeTCJjbaee/+wPWWeTkVeEtCqGe/3r8doEgBGymEa/8FTERcOoymmNGHoC6NJABix0Oo4NrqTn5HfriXjf7T/72WE+uDFESqwDBoxABi5zqjyq6Tt3PVo3hB6uqxbkm7s5CnQK0aTAABJkiXBT3PX4dAFTRhSoREDADyyzdeeIi5yOyclHynRiAEAvhNanTlL48/hTvP9YMe5C0HdaMQAAE+ycdwsdx0ZzEKrDTblYwg0YgCAZzmMuEiNlHwMikYMAPBTNp471HxcVzNGkRgcjRgA4EWh1Se71Poydy0JXIVWa4wikQONGABgYZYoX9OocmqxHUAWNGIAgKV0RpWlO+GuRORGsj4AYGkO0/iXcWdjViA7VsQAACuzsd5F7jqWMKMJgyc0YgCAV7Hk+RLS+ImmgDs0YgCAVwutzuQ34uJeRFPAKRoxAEAvOhEXs9y1dFyGVoFoCnhFIwYA6JWjNP6pxW0AbtGIAQB614m4uM9UwiHRFCgB8RUAgCQyRVzc2GXlQBFoxAAASYVWO7HRZ0kHiV/qwk5w4ml/7/l5W/b7iqfFRQ6I0IgBAJILrd7HRteSJole4pxTkS/6Z8/P+83+h+dlacQOYpP8U0+RQqu13DUAQC6dUeW1pM2eHnuneRPGqUgUic36AIBB2R6uWQ+PmoVWGzRhKBmNGABgcD1EXJCSjyrQiAEAsuhEXCybxk9KPqpBIwYAyKaTxn+5wC+/Cq3WGEWiJjRiAIDsLAH/Z6PKaWi1M1Q9wFBoxAAALnRGlT86ISUftSJHDADgxg9p/IGUfNSORgwA4NEie8aA4tGIAQBciY3+kLRvf71FTAVqxh4xAIAblrq/3/lbe7HRbWz0IVdNQEo0YgCA7GKjD7HRNz199dG6pElsyA5DfWjEAABZxUaftdhl4Kc2tgSqQSMGAMgmNvpT0sES/8q+jS+BKtCIAQAGZ6PIKGl3hX99Mzb6xr4x1IBGDAAwqNjoTPNR5JtXPmpiY02gWCniK6YkIAO+xUZnXJrcu2Uvrh6l2OiLpL0eH3kQG23aFUlAcVgRA8Yp5C4gk6dO5PXlNuGzi2ejyFv124Q92I2NIqNKlIhAV8Ch0Op9bJbawIzFjLUBzcpiJ04Tv8wbzUeV66z2Puta0m89Po8JWA9YEQPG6bV7c4CFWNxE6ias68jGn0ARaMSAcRrrRcpj/e/Owi7u3n/xF/Zvz8aggHs0YsA4beQuIJOUK4FXCZ9dlE5K/nbGMtYt4oIxJVyjEQPGaT13AahTJ5rCi1MiLuAZjRjgF3EIPbIGIRk2LT+m5B/lruMJBzYmBdyhEQP8SrrHJXVj4hD7wxLpRFOskpI/lG3S+OERjRjgV+o9Rzn37+Swk7uAGnVGkaWMuycj/BACx2jEAL/+Svx8z6sXKaRsFEa5Ud9iIjyOIl9CxAXcoBEDnApt+k/tYzlRZllWKV0nfr47sdG10qTkD2UvNrplVIncaMQA31Jv2H+X+PlepF79G82KWCeaIuV1UUNZF6NKZEYjBviW+qRX9fvEbMUj6f6l0OpTyud7YTEQnqIp+nI0wKop8CQaMcC35EfuR7BXJnWy+03i57tg8Q8133+6b+NWYFA0YoBjQ+wT03yvTJX7ZGwPXOpVv6obWRtFRo1g9VTSJhEXGBqNGODf5QCvkeM+wCEkP4wQ2noPPHSiKcZ2SfyENH4MhUYM8O+/A7zGdm0blm3PT+oGotpN+gVHU/TlwG4KAJKiEQOcs43gQ1x3dFTLSMaayiFW+aobS3ZS8vdy1+LAbmwUa/m+gE80YkAZZgO9zqT0Nx2rf4iVnLuB9vANxvbUlZSSP4Q3IuICCdGIAQUY+ELpYpuxTiMxhNlArzMIG+We5q6jYyZpmruIDtL4kQSNGFCOId+UilsBsHoHayQGbo6TsmgKTwc2zkOrd/Y1PsldTMeejW2B3vySuwAk848+H8YJouX1/UYdWr2PzaA5Tkex0XZo9XbA11yJbaoe8u7M8wFfKxlb+fQU0HqneRP2GJBr498za4A8jEzX7WaBk9pG08iDRqxe/+r5eTUHOaaSYsXkRMOOj3Y9v+nYB4Sh/2ze1BBZYSuInk5FXv6s6Q+tNmw0uDdcST91Ghv9O7T6PXchGR0M/OGwRlNGk0BBrBnKEZlwahcku2hAYqNjWyHJ8SZQ/OqwrSB6asLOF1l5Da3eyddq5L6NdYGV0YgBhQmtdjK99LrmDVnMdS9fbPTFVuhOlWdMdVHyvZKdlPwhx7gvOVxmhdF+7aGk+3QlLWWbNH68BqNJoEznyrei8UbzlYB9zff0fJX0NcXo0lbgdjRvHHKnu9+UPIZyOIq8WvVDhTXDnzLsDfyZSWy0XsPYGsOiEQMKFFodx0Zbyr9fZt1q2IvN4961K0m3shDaRQ4tdA6DrEvakMN7DUOrrdw1rMrZ3ippvrL46qY2tHrrrMEs5oAL/KARAwoVWr2z/SnempZtdWqqZDPvYe4CVhUbXUvazF1HR68HP+xDyZ38nP7ctf2L5yWPsTEc9ogBBbPRzhDXH41ZkW+odqDhm/w0YXeh1VqKEXZo9Sm0WpN00/ezV7SuArP4kAeNGFC40GpDNGOpnJe458dGva5S8u3PaVI2Pr5I/TpLOMp1sAXloBEDKkAzlkSpTdhX+cr9O7fYiUHY3jNPafz7Nh4GnkQjBlTCmrEcGWM1OimtCetEU3jZM3ivJaMp+mLjz0P5+XCyScQFnkMjBlTE9ozNctdRsIfmoai9PbYXaaL8ER8PLkOrkHNvne0b25Cv74cJ18XhRzRiQGUcpo+XInvzsAqLpvAS3yBJU0/xDQ6/Hw4s/wyQRCMGVCm0OnZ2isy7ha7Y8cRGkbfylQ922Pdl931wmMa/azdUMKoEjRhQMztF5mk1wJsri1QobT/YseajyBzXPD3lxr6OblcTbVQZ5Gcf5RsRcQHRiAGpuAkA7ayOzXLX4sid5hvyc93buTKLQ/AUTXFR0q0D9ns+zV1Hx5GNlzFSNGJA/w49rgzYXplD+VkRyGUaWm2UtiFfekzJ389dR8d5ifdv2vjUU8TFno2ZMUI0YkC/XDZhD2w8s6N5QzbLXM6QHlbA1jzuYXqJ7QdzlZKvTNEUfQmtzpzto1y3iItiv6ZYDY0Y0B/XTViXNWTv7I1oKj95S3271Pz3pcgVMOm7aAovLu3rWcSf9ZfYWHWWu46OU9L4x4VGDOhHMU3Yj0Kr95a39LBK5uVk2apuNB+ZrYVWb0v9fZEkiznwFE1R3OnSRTiMuNi3GxIwAmu2DNrn9RNfSv3kWRP7FB1y1zES1yW/2T/HPpXvyM847Dn3kr5qvlJTzc8e+x7ezV1Hx0WNf867LE7C0x68y5LHv1jMWu4CAJTBEsG3JW0ob2zClaRbSV9rarwAjBONGICV2Yr6r5o3Zhv2t7f0uqt2biRF++sr6fGUGwBU5/8Y/R+SzMwGyAAAAABJRU5ErkJggg==" alt="Fluxe Assessoria de Marketing e Vendas">
+  <span>Proposta Comercial</span>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="badge rv"><i></i>Tereza Cristina · Governança Corporativa</div>
+    <h1 class="rv">Sua autoridade em governança, <em>visível para o mercado certo</em>.</h1>
+    <p class="rv">Um plano para estruturar sua presença no LinkedIn e transformar trajetória, certificação e conhecimento em conselhos de família e consultivos em reconhecimento profissional.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">O momento</span>
+    <h2 class="rv">O espaço está aberto para quem se posicionar primeiro</h2>
+    <p class="rv">A governança corporativa vive um momento de expansão no Brasil, e o Nordeste acompanha esse movimento. O público que demanda estruturação de conselhos existe em volume, e o LinkedIn é exatamente onde ele está: empresários, conselheiros e tomadores de decisão.</p>
+    <p class="rv">Ao mesmo tempo, poucos profissionais da área mantêm presença ativa e constante na rede. <strong>Quem publica com consistência se destaca rapidamente</strong> e passa a ser encontrado por empresas, conselhos e oportunidades reais.</p>
+    <div class="stats">
+      <div class="stat rv"><b>90%</b><span>das empresas brasileiras têm perfil familiar, o público natural para conselhos de família e consultivos</span></div>
+      <div class="stat rv"><b>45%</b><span>dos líderes empresariais estão distantes do LinkedIn, um espaço em aberto para quem aparecer</span></div>
+      <div class="stat rv"><b>1x</b><span>por semana é a constância suficiente para construir presença e atrair conexões qualificadas</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Estratégia</span>
+    <h2 class="rv">Posicionamento antes de audiência</h2>
+    <p class="rv">O trabalho parte de um princípio simples. Primeiro, o perfil é estruturado como base de autoridade, com a certificação recente e a trajetória profissional em destaque. Depois, a presença é sustentada com conteúdo em formato de texto, o formato que funciona no LinkedIn da área de governança, publicado com constância semanal.</p>
+    <div class="pilares">
+      <div class="pilar rv"><h3>Perfil como vitrine</h3><p>Título, resumo e destaques construídos para que quem chegar ao perfil entenda em segundos quem você é e o valor que entrega.</p></div>
+      <div class="pilar rv"><h3>Certificação como prova</h3><p>A certificação recente publicada como marco de autoridade, validando expertise para a rede e para o mercado.</p></div>
+      <div class="pilar rv"><h3>Conteúdo em colaboração</h3><p>Você fornece as vivências e a visão de quem atua na área. A Fluxe transforma esse material em publicações estratégicas, mantendo sua voz.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Escopo e investimento</span>
+    <h2 class="rv">Dois caminhos possíveis</h2>
+    <div class="planos">
+      <div class="plano rv">
+        <span class="tag">Opção 1</span>
+        <h3>Repaginação do Perfil</h3>
+        <p class="desc">Entrega única para colocar o perfil no nível da sua trajetória.</p>
+        <ul>
+          <li>Orientação de foto de perfil e imagem de capa</li>
+          <li>Construção do título profissional com as certificações em destaque</li>
+          <li>Redação do resumo e mini currículo, contando trajetória, visão e área de atuação</li>
+          <li>Reorganização das experiências e da seção de destaques</li>
+          <li>Publicação estratégica da certificação como marco de autoridade</li>
+        </ul>
+        <div class="preco"><b>R$ 797,00</b><small>pagamento único</small></div>
+      </div>
+      <div class="plano rec rv">
+        <span class="tag">Opção 2 · Recomendado</span>
+        <h3>Posicionamento Completo</h3>
+        <p class="desc">Toda a repaginação da Opção 1, sem custo adicional, mais a gestão de conteúdo por 3 meses.</p>
+        <ul>
+          <li>Definição dos pilares de conteúdo alinhados à área de governança</li>
+          <li>Planejamento mensal de temas</li>
+          <li>Redação de 4 publicações por mês em formato de texto</li>
+          <li>Publicação e acompanhamento do perfil</li>
+          <li>Ajustes contínuos de posicionamento e linguagem</li>
+        </ul>
+        <div class="preco"><b>R$ 897,00 / mês</b><small>pelo período de 3 meses, com a repaginação inclusa</small></div>
+      </div>
+    </div>
+    <p class="pg-cond rv">Condições de pagamento: à vista via Pix ou parcelado no cartão com juros da operação.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Como funciona</span>
+    <h2 class="rv">Um processo simples do seu lado</h2>
+    <p class="rv">O processo começa com uma reunião de alinhamento para aprofundar história, trajetória e objetivos. A partir daí, os insumos podem ser enviados de forma simples, por áudio ou mensagem, e todo conteúdo passa pela sua aprovação antes de ir ao ar.</p>
+    <p class="rv">Sobre expectativas: os primeiros sinais de engajamento costumam aparecer entre 4 e 6 semanas de constância, e a percepção de autoridade se consolida ao longo dos meses. Por isso o programa completo tem duração de 3 meses, tempo necessário para construir uma base sólida.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow rv">Próximos passos</span>
+    <h2 class="rv">Como começamos</h2>
+    <div class="steps">
+      <div class="step rv"><div class="n">01</div><h3>Aprovação</h3><p>Você aprova a proposta e escolhe a opção que faz mais sentido.</p></div>
+      <div class="step rv"><div class="n">02</div><h3>Contrato</h3><p>Assinatura do contrato e primeiro pagamento.</p></div>
+      <div class="step rv"><div class="n">03</div><h3>Alinhamento</h3><p>Reunião de imersão para aprofundar história, trajetória e objetivos.</p></div>
+      <div class="step rv"><div class="n">04</div><h3>Execução</h3><p>Estruturação do perfil e, no plano completo, início da rotina de conteúdo.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="fluxe-mark">FLUXE</span>
+    <p>Assessoria de Marketing e Vendas · agenciafluxe@gmail.com · Aracaju, SE · 2026</p>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll('.rv').forEach((el,i)=>{
+  el.style.transitionDelay = (Math.min(i%6,4)*0.06)+'s';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
